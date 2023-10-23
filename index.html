@@ -96,6 +96,7 @@
 
 <div class="container">
  <h3>How it works?</h3>
+ <hr/>
   <p>To construct metrics that quantify the differences between two sets of images in an intelligible way, we introduce Heterogeneous CLIPScore (HCS), an advanced variant of CLIPScore. Unlike CLIPScore, HCS captures the similarity between two modalities—image and text—by setting distinct starting points for text and image vectors.</p>
  
  <div style="text-align : center;">
@@ -110,6 +111,168 @@
   </div>
  </div>
 
+
+ <div class="container">
+ <h3>So, what did we uncover?</h3>
+  <hr/>
+ <p>
+   <strong>Comparing the performance of generative models.</strong> We computed each generative model's performance on our metric with their official pretrained checkpoints on FFHQ. We used 50,000 images for both GT and the generated set. We used USER attributes for this experiment.
+ </p>
+
+   <table border="1" style="width:100%; text-align:center;">
+                <tr>
+                    <th></th>
+                    <th>StyleGAN1</th>
+                    <th>StyleGAN2</th>
+                    <th>StyleGAN3</th>
+                    <th>iDDPM</th>
+                    <th>LDM (50)</th>
+                    <th>LDM (200)</th>
+                    <th>StyleSwin</th>
+                    <th>ProjectedGAN</th>
+                </tr>
+                <tr>
+                    <td><b>SaD (↓1e-7</sup>)</b></td>
+                    <td>11.35</td>
+                    <td><strong>7.52</strong></td>
+                    <td>7.79</td>
+                    <td>14.78</td>
+                    <td>10.42</td>
+                    <td>14.04</td>
+                    <td>10.76</td>
+                    <td>17.61</td>
+                </tr>
+                <tr>
+                    <td><b>PaD (↓1e-7</sup>)</b></td>
+                    <td>27.25</td>
+                    <td><strong>19.22</strong></td>
+                    <td>19.73</td>
+                    <td>34.04</td>
+                    <td>25.36</td>
+                    <td>30.71</td>
+                    <td>26.56</td>
+                    <td>41.53</td>
+                </tr>
+                <tr>
+                    <td>FID (↓)</td>
+                    <td>4.74</td>
+                    <td><strong>3.17</strong></td>
+                    <td>3.20</td>
+                    <td>7.31</td>
+                    <td>12.18</td>
+                    <td>11.86</td>
+                    <td>4.45</td>
+                    <td>5.45</td>
+                </tr>
+                <tr>
+                    <td>FID<sub>CLIP</sub> (↓)</td>
+                    <td>3.17</td>
+                    <td><strong>1.47</strong></td>
+                    <td>1.66</td>
+                    <td>2.39</td>
+                    <td>3.89</td>
+                    <td>3.57</td>
+                    <td>2.45</td>
+                    <td>3.63</td>
+                </tr>
+                <tr>
+                    <td>Precision (↑)</td>
+                    <td>0.90</td>
+                    <td>0.92</td>
+                    <td>0.92</td>
+                    <td>0.93</td>
+                    <td><strong>0.94</strong></td>
+                    <td>0.91</td>
+                    <td>0.92</td>
+                    <td>0.92</td>
+                </tr>
+                <tr>
+                    <td>Recall (↑)</td>
+                    <td>0.86</td>
+                    <td>0.89</td>
+                    <td>0.90</td>
+                    <td>0.84</td>
+                    <td>0.82</td>
+                    <td>0.88</td>
+                    <td>0.91</td>
+                    <td><strong>0.92</strong></td>
+                </tr>
+                <tr>
+                    <td>Density (↑)</td>
+                    <td>1.05</td>
+                    <td>1.03</td>
+                    <td>1.03</td>
+                    <td><strong>1.09</strong></td>
+                    <td>1.09</td>
+                    <td>1.07</td>
+                    <td>1.01</td>
+                    <td>1.05</td>
+                </tr>
+                <tr>
+                    <td>Coverage (↑)</td>
+                    <td>0.97</td>
+                    <td>0.97</td>
+                    <td>0.97</td>
+                    <td>0.95</td>
+                    <td>0.94</td>
+                    <td>0.97</td>
+                    <td>0.97</td>
+                    <td>0.97</td>
+                </tr>
+            </table>
+        </figure>
+    
+    
+        <p>
+            Leveraging the superior sensitivity and discernment of our proposed metrics, 
+            we evaluate the performance of GANs and Diffusion Models (DMs) in 
+            Table \( \ref{tab:gan_diff_blip} \). Generally, the tendency of SaD and PaD 
+            align with other existing metrics. However three notable points emerge;
+        </p>
+        <ol>
+            <li>
+                <strong>ProjectedGAN</strong> <a href="https://arxiv.org/abs/2107.00641" target="_blank">[Sauer et al., 2021]</a> lags in performance, having been criticized 
+                <a href="https://arxiv.org/abs/2202.11582" target="_blank">[Kynkäänniemi et al., 2022]</a> for not focusing on fidelity and only aiming to achieve a good FID score 
+                by training to match the training set's embedding statistics. Even though it exhibits satisfactory results in traditional metrics, 
+                it notably underperforms in SaD and especially PaD when evaluated by our measures. This indicates that mimicking the training set's embedding statistics directly 
+                does not necessarily capture the correlation of attributes on the training set. Figure \( \ref{fig:1d_2d_difference} \)b provides instances where ProjectedGAN falls short.
+            </li>
+
+            <figure class="center-figure">
+                <img src="imgs/ldm_sampling_step.png" alt="LDM comparison between 50 and 200 timesteps" class="center-image" />
+                <figcaption>
+                    <strong>LDM with 50 steps v.s. LDM with 200 timesteps.</strong> With increased sampling timesteps, 
+                    (a) SaD of LDM gets worse, 
+                    (b) since making too many fine objects such as <code>earrings</code> or <code>necklace</code>.
+                </figcaption>
+            </figure>
+            
+
+            <li>
+                Diffusion models typically yield better quality with increased sampling timesteps. However, SaD and PaD scores for LDM(200 steps) surpass those of LDM(50 steps). 
+                As illustrated in Figure \( \ref{fig:5} \), higher sampling timesteps in the LDM model produce more high-frequency elements, such as <code>necklaces</code> and <code>earrings</code>. 
+                This might elucidate the prevalence of attributes like <code>young, makeup, woman, wavy hair</code>. We posit that a dense sampling trajectory engenders more high-frequency objects.
+            </li>
+            <li>
+                Through a detailed analysis of SaD and PaD scores, we noticed divergent trends between the strengths and weaknesses of GANs and Diffusion models. To probe deeper, 
+                we exploited the versatility of constructing attributes, examining score variations based on attribute characteristics. Specifically, we built attributes 
+                focused on color (e.g., <code>yellow fur</code>, <code>black fur</code>) and on shape (e.g., <code>pointy ears</code>, <code>long tail</code>) within the LSUN Cat dataset.
+            </li>
+        </ol>
+        <p>
+            For more detailed insights and contextual understanding of the findings, 
+            we encourage reading the full 
+            <a href="your_paper_link_here" target="_blank">research paper</a>.
+        </p>
+  
+  
+ </div>
+  
+  
+
+ 
+
+ 
  
 
  
