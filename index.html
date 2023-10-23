@@ -122,7 +122,7 @@
         <p>
             Leveraging the superior sensitivity and discernment of our proposed metrics, 
             we evaluate the performance of GANs and Diffusion Models (DMs) in 
-            Table \( \ref{tab:gan_diff_blip} \). Generally, the tendency of SaD and PaD 
+            Table above, the tendency of SaD and PaD 
             align with other existing metrics. However three notable points emerge;
         </p>
         <ol>
@@ -172,14 +172,68 @@
  
   
  </div>
-  
-  
 
- 
 
- 
- 
 
+
+ <div class="container">
+  <h3>Comparative Analysis of Stable Diffusion Versions</h3>
+  <hr/>
+        <p>
+            Table <a href="#tab:stable">1</a> shows SDv1.5 has better attribute distribution than SDv2.1, 
+            being almost twice as superior. Intriguingly, all SaD top-rank attributes have negative mean differences, 
+            indicating that SDs tend to omit certain objects such as <code>group</code><sup><a href="#fn1" id="ref1">1</a></sup> or 
+            <code>plate</code><sup><a href="#fn2" id="ref2">2</a></sup>. Particularly, SDv2.1 faces challenges in generating multiple people. 
+            This concurs with common assertions about SDv2.1, even though it reports a better FID score. In certain instances, users have noted 
+            SDv2.1's inferior performance compared to SDv1.5<sup><a href="#fn3" id="ref3">3</a></sup>. More details are provided in 
+            Appendix <a href="#subsec:coco_detail">A.1</a>.
+        </p>
+        <table id="tab:stable">
+            <caption>
+                Table 1: The scores of SaD and PaD on Stable Diffusion. Stable Diffusion v1.5 is almost better than v2.1 almost twice. 
+                We generate 30k images using the caption of COCO. We use \( N_{\mathcal{A}}=30 \).
+            </caption>
+            <thead>
+                <tr>
+                    <th rowspan="2">\( N_{\mathcal{A}}=30 \)</th>
+                    <th rowspan="2">SaD (\(10^{-7}\))&darr;</th>
+                    <th rowspan="2">PaD (\(10^{-7}\))&darr;</th>
+                    <th colspan="3">SaD top-rank attr (mean difference)</th>
+                </tr>
+                <tr>
+                    <th>1st</th>
+                    <th>2nd</th>
+                    <th>3rd</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>SDv1.5</td>
+                    <td>24.37</td>
+                    <td>60.71</td>
+                    <td>plate (-1.9)</td>
+                    <td>group (-1.6)</td>
+                    <td>building (-1.6)</td>
+                </tr>
+                <tr>
+                    <td>SDv2.1</td>
+                    <td>48.23</td>
+                    <td>106.86</td>
+                    <td>group (-3.7)</td>
+                    <td>plate (-2.5)</td>
+                    <td>person (-2.7)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            <sup id="fn1">1</sup> e.g., A group of people is standing around a large clock. <a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a><br>
+            <sup id="fn2">2</sup> e.g., A table is set with two plates of food and a candle. <a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a><br>
+            <sup id="fn3">3</sup> For example, some users have reported SDv2.1's lower performance compared to SDv1.5 in a blog post 
+            available at <a href="https://www.assemblyai.com/blog/stable-diffusion-1-vs-2-what-you-need-to-know/" target="_blank">AssemblyAI Blog</a>. 
+            <a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a>
+        </p>
+ </div>
+ 
  
 
 </body>
