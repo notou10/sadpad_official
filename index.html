@@ -85,7 +85,7 @@
 <div class="container">
  <h3>Our metric has interpretablity!</h3>
  <hr/>
- <h4>Our metric can tell you Model 2 is worse than Model <u>because it over-generates make-up, long hair, etc. </u></h4>
+ <h4>Our metric can tell you Model 2 is worse than Model <u>because it over-generates makeup, long hair, etc. </u></h4>
 
 <div style="text-align : center;">
     <img src="overall-1.png" style="width: 80%"/>
@@ -101,17 +101,19 @@
  <h3>How does it works?</h3>
  <hr/>
 <div style="text-align : center;">
-    <img src="9.PNG" style="width: 80%"/>
+    <img src="12.PNG" style="width: 80%"/>
   </div>
-  <p><strong>Figure 2</strong> illustrates overview of our metrics.
-   
+  <p><strong>Figure 2</strong> illustrates overview an of our metrics. We measure attribute strengths in all images in both two sets, and then calculate the divergence between two sets for each attributes.
+
+  <br></br>
+ 
  <h4>We compare distribution of attribute strengths between two sets. </h4>
  <p><strong>Single-attribute Divergence (SaD) </strong> measures how much a generative model deviates from the distribution of each attribute in the training data. If we have a dataset with dogs and cats, and a generative model only makes dog images, it is not an ideal model because it does not produce cats at all.
 
    <p><strong>Paired-attribute Divergence (PaD) </strong> measures how much a generative model breaks the relationship between attributes in the training data, such as "babies do not have beards."
 
     
-
+ <br></br>
  <h4>Measuring attributes strengths. </h4>
   <p>To construct metrics that quantify the differences between two sets of images in an intelligible way, we introduce Heterogeneous CLIPScore (HCS), an advanced variant of CLIPScore. Unlike CLIPScore, HCS captures the similarity between two modalities—image and text—by setting distinct starting points for text and image vectors.</p>
  
