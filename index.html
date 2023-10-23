@@ -70,7 +70,7 @@
   <hr/>
   <p>When the training dataset comprises a 1:1 proportion of dogs to cats, a generative model that produces 1:1 dogs and cats better resembles the training species distribution than another model with 3:1 dogs and cats. Can we capture this phenomenon using existing metrics? Unfortunately, we cannot, because these metrics do not provide any interpretability beyond "diversity". In this context, we propose a new evaluation protocol that measures the divergence of a set of generated images from the training set regarding the <em>distribution of attribute strengths</em> as follows.</p>
         <p>Single-attribute Divergence (SaD) measures the divergence regarding PDFs of a single attribute. Paired-attribute Divergence (PaD) measures the divergence regarding <em>joint</em> PDFs of a pair of attributes. They provide which attributes the models struggle. For measuring the attribute strengths of an image, we propose Heterogeneous CLIPScore (HCS) which measures the cosine similarity between image and text vectors with <em>heterogeneous initial points</em>.</p>
-        <p>With SaD and PaD, we reveal the following about existing generative models.</p>
+
 <!--         <ul>
             <li>ProjectedGAN generates implausible attribute relationships such as <code>baby</code> with <code>beard</code> even though it has competitive scores of existing metrics.</li>
             <li>Diffusion models struggle to capture diverse colors in the datasets.</li>
