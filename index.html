@@ -80,8 +80,7 @@
 </div>
  
 <br></br>
- <br></br>
- 
+
  
 <div class="container">
  <h3>Our metric has interpretablity</h3>
@@ -96,7 +95,8 @@
  
 </div>
 
-
+<br></br>
+ 
 <div class="container">
  <h3>How it works?</h3>
  <hr/>
@@ -115,6 +115,8 @@
  </div>
 
 
+ <br></br>
+ 
  <div class="container">
  <h3>So, what did we uncover?</h3>
   <hr/>
@@ -139,26 +141,29 @@
                 it notably underperforms in SaD and especially PaD when evaluated by our measures. This indicates that mimicking the training set's embedding statistics directly 
                 does not necessarily capture the correlation of attributes on the training set.
             </li>
+         <br></br>
 
-         <div style="text-align : center;">
+        
+     
+
+            <li>
+                Diffusion models typically yield better quality with increased sampling timesteps. However, SaD and PaD scores for LDM(200 steps) surpass those of LDM(50 steps). 
+              <div style="text-align : center;">
      <img src="5_4-1.png" style="width: 80%"/>
           <p><strong>LDM with 50 steps v.s. LDM with 200 timesteps.</strong> With increased sampling timesteps, 
                     (a) SaD of LDM gets worse, 
                     (b) since making too many fine objects such as <code>earrings</code> or <code>necklace</code>. </p>
    </div>
-         
-            
-
-            <li>
-                Diffusion models typically yield better quality with increased sampling timesteps. However, SaD and PaD scores for LDM(200 steps) surpass those of LDM(50 steps). 
                 Higher sampling timesteps in the LDM model produce more high-frequency elements, such as <code>necklaces</code> and <code>earrings</code>. 
                 This might elucidate the prevalence of attributes like <code>young, makeup, woman, wavy hair</code>. We posit that a dense sampling trajectory engenders more high-frequency objects.
             </li>
+         <br></br>
             <li>
                 Through a detailed analysis of SaD and PaD scores, we noticed divergent trends between the strengths and weaknesses of GANs and Diffusion models. To probe deeper, 
                 we exploited the versatility of constructing attributes, examining score variations based on attribute characteristics. Specifically, we built attributes 
                 focused on color (e.g., <code>yellow fur</code>, <code>black fur</code>) and on shape (e.g., <code>pointy ears</code>, <code>long tail</code>) within the LSUN Cat dataset.
             </li>
+         <br></br>
 
           <li>
             <strong>Comparative analysis of StableDiffusion versions</strong> shows SDv1.5 has better attribute distribution than SDv2.1, 
@@ -185,6 +190,7 @@
             </li>
          
         </ol>
+  <br></br>
         <p>
             For more detailed insights and contextual understanding of the findings, 
             we encourage reading the full 
