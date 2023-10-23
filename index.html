@@ -41,8 +41,8 @@
 
 <div class="container" style="text-align:center; padding:2rem 15px">
   <div class="row" style="text-align:center">
-    <h1>Attribute Based Interpretable Metrics for Generative Models</h1>
-    <h4>arXiv 2024</h4>
+    <h1>Attribute-Based Interpretable Metrics for Generative Models</h1>
+    <h4>arXiv 2023</h4>
   </div>
   <div class="row" style="text-align:center">
     <div class="col-xs-0 col-md-3"></div>
@@ -98,13 +98,26 @@
 <br></br>
  
 <div class="container">
- <h3>How it works?</h3>
+ <h3>How does it works?</h3>
  <hr/>
+<div style="text-align : center;">
+    <img src="9.PNG" style="width: 80%"/>
+  </div>
+  <p><strong>Figure 2</strong> illustrates overview of our metrics.
+   
+ <h4>We compare distribution of attribute strengths between two sets. </h4>
+ <p><strong>Single-attribute Divergence (SaD) </strong> measures how much a generative model deviates from the distribution of each attribute in the training data. If we have a dataset with dogs and cats, and a generative model only makes dog images, it is not an ideal model because it does not produce cats at all.
+
+   <p><strong>Paired-attribute Divergence (PaD) </strong> measures how much a generative model breaks the relationship between attributes in the training data, such as "babies do not have beards."
+
+    
+
+ <h4>Measuring attributes strengths. </h4>
   <p>To construct metrics that quantify the differences between two sets of images in an intelligible way, we introduce Heterogeneous CLIPScore (HCS), an advanced variant of CLIPScore. Unlike CLIPScore, HCS captures the similarity between two modalities—image and text—by setting distinct starting points for text and image vectors.</p>
  
  <div style="text-align : center;">
     <img src="2_9-1.png" style="width: 80%"/>
-  <p><strong>Figure 2</strong> Illustrates CLIPScore and Heterogeneous CLIPScore,  </strong> (a) CLIPScore (CS) evaluates the similarity between 
+  <p><strong>Figure 3</strong> illustrates CLIPScore and Heterogeneous CLIPScore,  </strong> (a) CLIPScore (CS) evaluates the similarity between 
                 \(V^{CS}_{img}\) and \(V^{CS}_{Text}\) from the coordinate origin, where the angle between the two vectors 
                 is bounded, resulting in a limited similarity value. (b) HCS gauges the similarity between 
                 \(V^{HCS}_{img}\) and \(V^{HCS}_{Text}\) using the defined means of images \(C_\mathcal{X}\) and texts 
@@ -168,7 +181,7 @@
             being almost twice as superior. (We generate 30k images using the caption of COCO. We use \( N_{\mathcal{A}}=30 \).) 
            
       <div style="text-align : center;">
-        <img src="8.PNG" style="width: 60%"/>
+        <img src="10.PNG" style="width: 60%"/>
        </div>
                Intriguingly, all SaD top-rank attributes have negative mean differences, 
             indicating that SDs tend to omit certain objects such as <code>group</code><sup><a href="#fn1" id="ref1">1</a></sup> or 
