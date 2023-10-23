@@ -158,12 +158,13 @@
             </li>
 
           <li>
-              <hr/>
+            <strong>Comparative analysis of StableDiffusion versions</strong> shows SDv1.5 has better attribute distribution than SDv2.1, 
+            being almost twice as superior. (We generate 30k images using the caption of COCO. We use \( N_{\mathcal{A}}=30 \).) 
+           
       <div style="text-align : center;">
-        <img src="8.PNG" style="width: 40%"/>
+        <img src="8.PNG" style="width: 60%"/>
        </div>
-                <strong>Comparative analysis of StableDiffusion versions</strong> shows SDv1.5 has better attribute distribution than SDv2.1, 
-            being almost twice as superior. (We generate 30k images using the caption of COCO. We use \( N_{\mathcal{A}}=30 \).) Intriguingly, all SaD top-rank attributes have negative mean differences, 
+               Intriguingly, all SaD top-rank attributes have negative mean differences, 
             indicating that SDs tend to omit certain objects such as <code>group</code><sup><a href="#fn1" id="ref1">1</a></sup> or 
             <code>plate</code><sup><a href="#fn2" id="ref2">2</a></sup>. Particularly, SDv2.1 faces challenges in generating multiple people. 
             This concurs with common assertions about SDv2.1, even though it reports a better FID score. In certain instances, users have noted 
