@@ -86,7 +86,7 @@
  <h4>Our metric can tell you Model 2 is worse than Model <u>because it over-generates make-up, long hair, etc. </u></h4>
 
 <div style="text-align : center;">
-    <img src="/overall.pdf" style="width: 80%"/>
+    <img src="overall.pdf" style="width: 80%"/>
   </div>
 <p><strong>Figure 1</strong> illustrates the evaluation metrics for two models with distinct properties. While Model 1’s generated images align closely with the training dataset, Model 2 exhibits a lack of diversity. Notably, in Figure 1a (gray box), Model 1 consistently outperforms Model 2 across all metrics. Yet, these metrics fall short in explicability; for example, they don’t highlight the overrepresentation of <code>long hair</code> and <code>makeup</code> in Model 2.</p>
 <p>Addressing this gap, our paper proposes a methodology to quantify discrepancies between generated and training images, focusing on specific attributes. Figure 1b shows the concept of our alternative approach that measures the distribution of attribute strengths compared to the training set: while Model 1 offers a balanced attribute distribution akin to the training dataset, Model 2 overemphasizes <code>long hair</code> and underrepresents <code>beard</code>.</p>
