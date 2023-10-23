@@ -148,7 +148,7 @@
 
             <li>
                 Diffusion models typically yield better quality with increased sampling timesteps. However, SaD and PaD scores for LDM(200 steps) surpass those of LDM(50 steps). 
-                As illustrated in Figure \( \ref{fig:5} \), higher sampling timesteps in the LDM model produce more high-frequency elements, such as <code>necklaces</code> and <code>earrings</code>. 
+                Higher sampling timesteps in the LDM model produce more high-frequency elements, such as <code>necklaces</code> and <code>earrings</code>. 
                 This might elucidate the prevalence of attributes like <code>young, makeup, woman, wavy hair</code>. We posit that a dense sampling trajectory engenders more high-frequency objects.
             </li>
             <li>
@@ -156,6 +156,30 @@
                 we exploited the versatility of constructing attributes, examining score variations based on attribute characteristics. Specifically, we built attributes 
                 focused on color (e.g., <code>yellow fur</code>, <code>black fur</code>) and on shape (e.g., <code>pointy ears</code>, <code>long tail</code>) within the LSUN Cat dataset.
             </li>
+
+          <li>
+              <hr/>
+      <div style="text-align : center;">
+        <img src="8.PNG" style="width: 40%"/>
+       </div>
+                <strong>Comparative analysis of StableDiffusion versions</strong> shows SDv1.5 has better attribute distribution than SDv2.1, 
+            being almost twice as superior. (We generate 30k images using the caption of COCO. We use \( N_{\mathcal{A}}=30 \).) Intriguingly, all SaD top-rank attributes have negative mean differences, 
+            indicating that SDs tend to omit certain objects such as <code>group</code><sup><a href="#fn1" id="ref1">1</a></sup> or 
+            <code>plate</code><sup><a href="#fn2" id="ref2">2</a></sup>. Particularly, SDv2.1 faces challenges in generating multiple people. 
+            This concurs with common assertions about SDv2.1, even though it reports a better FID score. In certain instances, users have noted 
+            SDv2.1's inferior performance compared to SDv1.5<sup><a href="#fn3" id="ref3">3</a></sup>. More details are provided in 
+            Appendix <a href="#subsec:coco_detail">A.1</a>.
+
+            <p>
+            <sup id="fn1">1</sup> e.g., A group of people is standing around a large clock. <a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a><br>
+            <sup id="fn2">2</sup> e.g., A table is set with two plates of food and a candle. <a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a><br>
+            <sup id="fn3">3</sup> For example, some users have reported SDv2.1's lower performance compared to SDv1.5 in a blog post 
+            available at <a href="https://www.assemblyai.com/blog/stable-diffusion-1-vs-2-what-you-need-to-know/" target="_blank">AssemblyAI Blog</a>. 
+            <a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a>
+        </p>
+           
+            </li>
+         
         </ol>
         <p>
             For more detailed insights and contextual understanding of the findings, 
@@ -169,35 +193,6 @@
 
 
 
-
- <div class="container">
-  <h3>Comparative analysis of StableDiffusion versions</h3>
-  <hr/>
-   <div style="text-align : center;">
-     <img src="8.PNG" style="width: 60%"/>
-    </div>
-        <p>
-            Table shows SDv1.5 has better attribute distribution than SDv2.1, 
-            being almost twice as superior. Intriguingly, all SaD top-rank attributes have negative mean differences, 
-            indicating that SDs tend to omit certain objects such as <code>group</code><sup><a href="#fn1" id="ref1">1</a></sup> or 
-            <code>plate</code><sup><a href="#fn2" id="ref2">2</a></sup>. Particularly, SDv2.1 faces challenges in generating multiple people. 
-            This concurs with common assertions about SDv2.1, even though it reports a better FID score. In certain instances, users have noted 
-            SDv2.1's inferior performance compared to SDv1.5<sup><a href="#fn3" id="ref3">3</a></sup>. More details are provided in 
-            Appendix <a href="#subsec:coco_detail">A.1</a>.
-        </p>
-
-                Table 1: The scores of SaD and PaD on Stable Diffusion. Stable Diffusion v1.5 is almost better than v2.1 almost twice. 
-                We generate 30k images using the caption of COCO. We use \( N_{\mathcal{A}}=30 \).
-
-        <p>
-            <sup id="fn1">1</sup> e.g., A group of people is standing around a large clock. <a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a><br>
-            <sup id="fn2">2</sup> e.g., A table is set with two plates of food and a candle. <a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a><br>
-            <sup id="fn3">3</sup> For example, some users have reported SDv2.1's lower performance compared to SDv1.5 in a blog post 
-            available at <a href="https://www.assemblyai.com/blog/stable-diffusion-1-vs-2-what-you-need-to-know/" target="_blank">AssemblyAI Blog</a>. 
-            <a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a>
-        </p>
- </div>
- 
  
 
 </body>
