@@ -32,10 +32,54 @@
   <script> MathJax = { tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]} }; </script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
+ 
 
 
 <body>
 
+
+
+<div class="container" style="text-align:center; padding:2rem 15px">
+  <div class="row" style="text-align:center">
+    <h1>Attribute Based Interpretable Metrics for Generative Models</h1>
+    <h4>arXiv 2024</h4>
+  </div>
+  <div class="row" style="text-align:center">
+    <div class="col-xs-0 col-md-3"></div>
+    <div class="col-xs-12 col-md-6">
+      <h4>
+        <a href="https://vilab.yonsei.ac.kr/member/students"><nobr>Dongkyun Kim</nobr></a> &emsp;
+        <a href="https://drive.google.com/file/d/1d1TOCA20KmYnY8RvBvhFwku7QaaWIMZL/view?usp=share_link"><nobr>Mingi Kwon</nobr></a> &emsp;
+        <a href="https://vilab.yonsei.ac.kr/member/professor"><nobr>Youngjung Uh</nobr></a>
+      </h4>
+      Yonsei University</nobr>, Korea</nobr>
+    </div>
+    <div class="hidden-xs hidden-sm col-md-1" style="text-align:left; margin-left:0px; margin-right:0px">
+      <a href="https://arxiv.org/pdf/2210.10960.pdf" style="color:inherit" target="_blank">
+        <i class="fa fa-file-pdf-o fa-4x"></i></a> 
+    </div>
+    <div class="hidden-xs hidden-sm col-md-2" style="text-align:left; margin-left:0px;">
+      <a style="color:inherit" href="https://github.com/notou10/SaDPaD" target="_blank">
+        <i class="fa fa-github fa-4x"></i></a>
+    </div>
+  </div>
+</div>
+ 
+<div class="container">
+  <h3>Abstract</h3>
+  <hr/>
+  <p>When the training dataset comprises a 1:1 proportion of dogs to cats, a generative model that produces 1:1 dogs and cats better resembles the training species distribution than another model with 3:1 dogs and cats. Can we capture this phenomenon using existing metrics? Unfortunately, we cannot, because these metrics do not provide any interpretability beyond "diversity". In this context, we propose a new evaluation protocol that measures the divergence of a set of generated images from the training set regarding the <em>distribution of attribute strengths</em> as follows.</p>
+        <p>Single-attribute Divergence (SaD) measures the divergence regarding PDFs of a single attribute. Paired-attribute Divergence (PaD) measures the divergence regarding <em>joint</em> PDFs of a pair of attributes. They provide which attributes the models struggle. For measuring the attribute strengths of an image, we propose Heterogeneous CLIPScore (HCS) which measures the cosine similarity between image and text vectors with <em>heterogeneous initial points</em>.</p>
+        <p>With SaD and PaD, we reveal the following about existing generative models.</p>
+        <ul>
+            <li>ProjectedGAN generates implausible attribute relationships such as <code>baby</code> with <code>beard</code> even though it has competitive scores of existing metrics.</li>
+            <li>Diffusion models struggle to capture diverse colors in the datasets.</li>
+            <li>The larger sampling timesteps of latent diffusion model generate the more minor objects including <code>earrings</code> and <code>necklace</code>.</li>
+            <li>Stable Diffusion v1.5 better captures the attributes than v2.1. Our metrics lay a foundation for explainable evaluations of generative models.</li>
+        </ul>
+</div>
+
+ 
 <div class="container">
   <h3>Our metric has interpretablity</h3>
  <h4>Our metric can tell you Model 2 is worse than Model <u>because it over-generates make-up, long hair, etc. </u></h4>
